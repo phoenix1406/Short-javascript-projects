@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- CSS only -->
+  <style>
+    h2,
+    h3,
+    h1 {
+
+      text-align: center;
+    }
+
+    .container {
+      border: 2px solid black;
+      display: flex;
+      padding: 10px;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+    }
+
+    .btn {
+      cursor: pointer;
+      padding: 10px;
+      border: 2px groove black;
+      border-radius: 5px;
+      font-weight: bold;
+
+    }
+
+    .btn-primary {
+      background-color: rgb(116, 234, 234);
+    }
+
+    .btn-danger {
+      background-color: red;
+    }
+
+    .btn-success {
+      background-color: rgb(75, 226, 75);
+    }
+
+    .btn-warning {
+      background-color: rgb(232, 235, 49);
+    }
+
+    .container-2 .btn {
+
+      margin: 7px;
+
+    }
+
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .flex-container-2 {
+      display: flex;
+      border: 2px solid black;
+      padding: 10px;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .flex-container-2 img {
+      margin: 5px;
+      border: 2px solid black;
+      box-shadow: 14px -13px 6px -7px rgb(184, 85, 85);
+
+    }
+
+    #rps-box {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 10px;
+    }
+
+    #rps-box .ig {
+      height: 150px;
+      width: 150px;
+
+    }
+
+    .ig:hover {
+      box-shadow: 0px 5px 2px 4px rgba(44, 44, 215, 0.715)
+    }
+
+    #rock {
+      border: 2px solid red;
+    }
+
+    #paper {
+      border: 2px solid rgb(53, 113, 53);
+
+    }
+
+    #scissor {
+      border: 2px solid blue;
+    }
+
+    #btn-box,
+    .blackjackrow-1,
+    .blackjackrow-2,
+    .blackjackrow-3 {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 10px;
+      border: 2px solid black;
+    }
+
+    #btn-box label {
+      font-weight: bold;
+    }
+
+    .blackjackrow-1::before {
+      background: url('https://images.unsplash.com/photo-1561016444-14f747499547?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z3JlZW4lMjBjb2xvcnxlbnwwfHwwfHw%3D&w=1000&q=80') no-repeat center/cover;
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      opacity: 0.46;
+    }
+
+    .blackjackrow-2 {
+      background: url('https://images.unsplash.com/photo-1561016444-14f747499547?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z3JlZW4lMjBjb2xvcnxlbnwwfHwwfHw%3D&w=1000&q=80') no-repeat center/cover;
+
+
+    }
+
+    .blackjackrow2 div {
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+    .blackjackrow-1 {
+      position: relative;
+    }
+
+    .blackjackrow-1 div {
+      border: 1px solid black;
+      padding: 10px;
+      justify-content: center;
+      /* height:355px; */
+      /* since it is the flex-items which is present inside the balckjackrow-1 */
+      flex: 1;
+    }
+
+    .container-5 {
+      width: 75%;
+      margin: 0px auto;
+      text-align: center;
+      border: 1px solid black;
+    }
+
+    table,
+    th,
+    td {
+      padding: 5px;
+      border: 1px solid black;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h2>Challenge 1:Your Age in days</h2>
+  <div class="container">
+    <button id="primary" class="btn btn-primary" onclick="ageindays()">Click Me</button>
+    <button id="danger" class="btn btn-danger" onclick="stop()">Reset</button>
+
+
+  </div>
+  <div class="container">
+    <div id="flex-result"></div>
+  </div>
+
+  <div class="container-2">
+    <h2>Challenge 2:Cat generator</h2>
+    <div class="main">
+      <button class="btn btn-success" id="cat-gen" onclick="generateCat()">Generate Cat</button>
+    </div>
+    <div class="flex-container-2" id="cat-box">
+      <!-- <img src="http://thecatapi.com/api/images/get?format=src&type=gif" alt="Error loading Image" srcset="">
+        <img src="http://thecatapi.com/api/images/get?format=src&type=gif" alt="Error loading Image" srcset="">
+        <img src="http://thecatapi.com/api/images/get?format=src&type=gif" alt="Error loading Image" srcset="">
+        <img src="http://thecatapi.com/api/images/get?format=src&type=gif" alt="Error loading Image" srcset="">
+        <img src="http://thecatapi.com/api/images/get?format=src&type=gif" alt="Error loading Image" srcset=""> -->
+
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Challenge 3:Rock,paper and Scissor</h2>
+    <div id="rps-box">
+      <img
+        src="https://media.istockphoto.com/photos/light-yellowbrown-stone-on-a-white-background-picture-id1159941628?s=2048x2048"
+        alt="" srcset="" id="rock" class="ig" onclick="rpsgame(this)">
+      <img src="https://us.123rf.com/450wm/picsfive/picsfive2002/picsfive200200143/140781859-close-up-of-a-note-paper-on-white-background.jpg?ver=6" alt="" srcset="" class="ig" id="paper"
+        onclick="rpsgame(this)">
+      <img
+        src="https://media.istockphoto.com/photos/old-red-children-scissors-isolated-on-white-picture-id1155411714?k=20&m=1155411714&s=612x612&w=0&h=HOLwUBNoR82CfEjasX8RHR_dCB4-FxucBsn1EkDMTsI="
+        alt="" srcset="" class="ig" id="scissor" onclick="rpsgame(this)">
+
+    </div>
+
+  </div>
+  <div class="container-4">
+    <h2>Challenge 4: Change the Colours of All Buttons</h2>
+    <div id="btn-box">
+      <form action="backend.php">
+        <label for="bg">Your Choice</label>
+        <select name="my name" id="bg" onchange="buttoncolorchange(this)">
+          <option value="random">random</option>
+          <option value="red">red</option>
+          <option value="green">green</option>
+          <option value="reset">reset</option>
+        </select>
+      </form>
+      <div>
+        <button class="btn btn-primary" id="bt-1">Wee!</button>
+      </div>
+      <div> <button class="btn btn-danger" id="bt-2">Yahoo!</button></div>
+      <div> <button class="btn btn-warning" id="bt-3">Facebook!</button>
+      </div>
+      <div> <button class="btn btn-success" id="bt-4">Google!</button>
+      </div>
+
+    </div>
+
+    <div class="container-5">
+      <h2>Challenge 5:Blackjack</h2>
+      <h3><span id="blackjack-result">Lets Play</span></h3>
+
+      <div class="blackjackrow-1">
+        <div id="your-box">
+          <h2>You:<span id="yourblackjack-result">0</span></h2>
+        </div>
+
+
+
+        <div id="dealer-box">
+          <h2>Dealer:<span id="dealerblackjack-result">0</span></h2>
+
+        </div>
+      </div>
+      <div class="blackjackrow-2">
+        <div>
+          <button class="btn btn-primary" id="hit-btn">Hit</button>
+          <button class="btn btn-warning" id="stand-btn">Stand</button>
+          <button class="btn btn-danger" id="deal-btn">Deal</button>
+        </div>
+      </div>
+      <div class="blackjackrow-3">
+        <table style="border:2px solid black;">
+          <thead>
+            <tr>
+              <th>Wins</th>
+              <th>Loses</th>
+              <th>Draws</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span id="wins">0</span></td>
+              <td><span id="loses">0</span></td>
+              <td><span id="draws">0</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+</body>
+<script>
+  function ageindays() {
+    let birthyear = prompt('What is your birth year?', "guest");
+    let newdate = new Date();
+    let yr = newdate.getFullYear();
+    let agd = (yr - birthyear) * 365;
+    // let bt = document.getElementById('head');
+    let pa = document.createElement('h1');
+    let textanswer = document.createTextNode('You are ' + agd + " days old");
+    pa.setAttribute('id', 'age');
+    pa.appendChild(textanswer);
+    document.getElementById('flex-result').appendChild(pa);
+
+
+  }
+  function stop() {
+    document.getElementById('age').remove();
+  }
+  function generateCat() {
+    let a = document.getElementById('cat-box');
+
+    let imag = document.createElement('img');
+    imag.src = "http://thecatapi.com/api/images/get?format=src&type=gif";
+    a.appendChild(imag);
+
+  }
+  function rpsgame(yourchoice) {
+    let humanchoice, botchoice;
+    humanchoice = yourchoice.id;
+    console.log('Human choice is:', humanchoice);
+    botchoice = numtochoices(randrps());
+
+    console.log("Bot choice is :", botchoice);
+    let results = decidewinner(humanchoice, botchoice);
+    console.log(results);
+    let message = finalmessage(results);
+    console.log(message);
+    rpsfrontend(humanchoice, botchoice, message);
+
+  }
+
+  function randrps() {
+    return (Math.floor((Math.random() * 3) + 0));
+  }
+  function numtochoices(number) {
+    return (['rock', 'scissor', 'paper'][number]);
+  }
+  function decidewinner(yourchoice, computerchoice) {
+    let rpsdatabase = {
+      'rock': { 'rock': 0.5, 'paper': 0, 'scissor': 1 },
+      'paper': { 'rock': 1, 'paper': 0.5, 'scissor': 0 },
+      'scissor': { 'rock': 0, 'paper': 1, 'scissor': 0.5 },
+
+    }
+    let yourscore = rpsdatabase[yourchoice][computerchoice];
+    let computerscore = rpsdatabase[computerchoice][yourchoice];
+    return ([yourscore, computerscore])
+
+
+  }
+  function finalmessage([yourscore, computerscore]) {
+    if (yourscore == 0) {
+      return ({ "message": 'You lost', "color": "red" })
+    }
+    else if (yourscore == 0.5) {
+      return ({ "message": 'You Tied', "color": "yellow" })
+    }
+    else {
+      return ({ "message": 'You Won', "color": "green" })
+    }
+
+  }
+  function rpsfrontend(humanimagechoice, botimagechoice, finalmessage) {
+
+    let imagedatabases = {
+
+      'rock': document.getElementById('rock').src,
+      ' paper': document.getElementById('paper').src,
+      'scissor': document.getElementById('scissor').src
+    }
+
+    // console.log(imagedatabases[rock]);
+    // removing images 
+    document.getElementById('rock').remove();
+    document.getElementById('paper').remove();
+    document.getElementById('scissor').remove();
+
+    let humandiv = document.createElement('div');
+    let botdiv = document.createElement('div');
+    let messdiv = document.createElement('div');
+
+    humandiv.innerHTML = "<img src= '" + imagedatabases[humanimagechoice] + "'height = 150 width=150 style = 'box-shadow:0px 10px 50px rgba(37,50,233,1);' >";
+    messdiv.innerHTML = "<h1 style = 'color: " + finalmessage['color'] + ";font-size:60px;padding:30px;'>" + finalmessage['message'] + "</h1>";
+    botdiv.innerHTML = "<img src= '" + imagedatabases[botimagechoice] + "'height = 150 width=150 style = 'box-shadow:0px 10px 50px red;' >";
+
+
+
+
+    document.getElementById('rps-box').appendChild(humandiv);
+    document.getElementById('rps-box').appendChild(messdiv);
+
+    document.getElementById('rps-box').appendChild(botdiv);
+
+    let element = document.querySelector('#rps-box');
+    element.style.backgroundColor = 'black';
+
+
+  }
+
+
+  let all_buttons = document.getElementsByTagName('button');
+
+  let copyAllbuttons = [];
+  for (let i = 0; i < all_buttons.length; i++) {
+    copyAllbuttons.push(all_buttons[i].classList[1]);
+  }
+
+  // console.log(copyAllbuttons);
+
+  function buttoncolorchange(buttonthingy) {
+    if (buttonthingy.value == "red") {
+      buttonred();
+    }
+    else if (buttonthingy.value == "green") {
+      buttongreen();
+    }
+    else if (buttonthingy.value == "reset") {
+      buttonreset();
+    }
+    else if (buttonthingy.value == "random") {
+      buttonrandom();
+    }
+
+  }
+  function buttonred() {
+    for (let i = 0; i < all_buttons.length; i++) {
+      all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+      all_buttons[i].classList.add('btn-danger');
+    }
+  }
+  function buttongreen() {
+    for (let i = 0; i < all_buttons.length; i++) {
+      all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+      all_buttons[i].classList.add('btn-success');
+    }
+  }
+  function buttonreset() {
+    for (let i = 0; i < all_buttons.length; i++) {
+      all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+      all_buttons[i].classList.add(copyAllbuttons[i]);
+    }
+  }
+  function buttonrandom() {
+
+
+    for (let i = 0; i < all_buttons.length; i++) {
+      all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+      let sel = selectchoices();
+      if (sel == "btn-primary") {
+        all_buttons[i].classList.add(sel);
+      }
+      else if (sel == "btn-danger") {
+        all_buttons[i].classList.add(sel);
+      }
+      else if (sel == "btn-warning") {
+        all_buttons[i].classList.add(sel);
+      }
+      else if (sel == "btn-success") {
+        all_buttons[i].classList.add(sel);
+      }
+
+    }
+
+  }
+  function selectchoices() {
+    let choices = ['btn-primary', 'btn-warning', 'btn-success', 'btn-danger'];
+    let x = Math.floor((Math.random() * 4) + 0);
+
+    return (choices[x]);
+  }
+
+  let blackjackgame = {
+    'you': { 'scorespan': '#yourblackjack-result', 'div': '#your-box', 'score': 0 },
+    'dealer': { 'scorespan': '#dealerblackjack-result', 'div': '#dealer-box', 'score': 0 },
+    'cards': ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'],
+    'cardsmap': { '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 10, 'K': 10, 'Q': 10, 'A': [1, 11] },
+      'wins':0,
+      'loses':0,
+      'draws':0,
+      'isstand':false,
+      'turnsover':false,
+  }
+
+  const YOU = blackjackgame['you'];
+  const DEALER = blackjackgame['dealer'];
+  const hitsound = new Audio('sounds/swish.m4a');
+  const winsound = new Audio('sounds/cash.mp3');
+  const lostsound = new Audio('sounds/aww.mp3');
+
+
+  document.querySelector('#hit-btn').addEventListener('click', blackjackhit);
+  document.querySelector('#stand-btn').addEventListener('click',dealerlogic);
+  document.querySelector('#deal-btn').addEventListener('click', blackjackdeal);
+ 
+
+  function blackjackhit() {
+    // showcard(YOU);
+    // showcard(DEALER);
+    if(blackjackgame['isstand']==false){
+    let cards = randomcard();
+    showcard(YOU, cards);
+    updatescore(YOU, cards);
+    showscore(YOU);
+    }
+
+  }
+  function blackjackdeal() {
+    if(blackjackgame['turnsover']==true){
+      blackjackgame['isstand']=false;
+    let yourimages = document.querySelector('#your-box').querySelectorAll('img');
+
+    let dealerimages = document.querySelector('#dealer-box').querySelectorAll('img');
+    for (let i = 0; i < yourimages.length; i++) {
+      yourimages[i].remove();
+    }
+    for (let i = 0; i < dealerimages.length; i++) {
+      dealerimages[i].remove();
+    }
+    YOU['score']=0;
+    DEALER['score']=0;
+    document.querySelector('#yourblackjack-result').textContent=0;
+    document.querySelector('#dealerblackjack-result').textContent=0;
+    // same iinerHTML or textContent can also be use
+    // document.querySelector(YOU['scorespan']).textContent=0;
+    // document.querySelector(DEALER['scorespan']).textContent=0;
+    document.querySelector('#yourblackjack-result').style.color='black';
+    document.querySelector('#dealerblackjack-result').style.color='black';
+    
+    document.querySelector('#blackjack-result').textContent='Lets play';
+    document.querySelector('#blackjack-result').style.color='black';
+
+   
+  }
+  blackjackgame['turnsover']=true;
+
+
+  }
+  function randomcard() {
+    let randomindex = Math.floor(Math.random() * 13);
+    return blackjackgame['cards'][randomindex];
+  }
+  function showcard(activeplayer, cards) {
+    if(activeplayer['score']<=21){
+    let cardImage = document.createElement('img');
+    cardImage.style.height = '100px';
+    cardImage.style.width = '100px';
+    cardImage.style.padding = '5px';
+    cardImage.src = `img/${cards}.png`;
+    document.querySelector(activeplayer['div']).appendChild(cardImage);
+    hitsound.play();
+  }
+}
+  function updatescore(activeplayer, cards) {
+    if (cards == 'A') {
+      if (activeplayer['score'] + blackjackgame['cardsmap'][cards][1] <= 21) {
+        activeplayer['score'] += blackjackgame['cardsmap'][cards][1];
+      }
+      else {
+        activeplayer['score'] += blackjackgame['cardsmap'][cards][0];
+      }
+    }
+
+    else {
+      activeplayer['score'] += blackjackgame['cardsmap'][cards];
+
+    }
+  }
+  function showscore(activeplayer) {
+    if(activeplayer['score']>21){
+      document.querySelector(activeplayer['scorespan']).textContent="BURST!";
+      document.querySelector(activeplayer['scorespan']).style.color="red";
+
+    }
+
+    else{ 
+   
+    // document.querySelector(activeplayer['scorespan']).innerHTML=activeplayer['score'];
+    document.querySelector(activeplayer['scorespan']).textContent = activeplayer['score'];
+
+    }
+  }
+  function sleep(ms){
+    return  new Promise(resolve=> setTimeout(resolve,ms));
+  }
+  async function dealerlogic(){
+    blackjackgame['isstand']=true;
+    while(DEALER['score']<16 && blackjackgame['isstand']==true){
+    let dcard =randomcard();
+    showcard(DEALER,dcard);
+    updatescore(DEALER,dcard);
+    showscore(DEALER);
+  await sleep(1000);
+    }
+    
+      blackjackgame['turnsover']=true;
+
+      showresults(computewinner());
+    }
+  
+  function computewinner(){
+    let winner;
+    if(YOU['score']<=21){
+      // two case if dealer score is less than your score or it either burst
+      if(YOU['score']>DEALER['score'] || DEALER['score']>21){
+        console.log('YOU WON!');
+        blackjackgame['wins']++;
+        winner=YOU;
+      }
+      else if(YOU['score'] < DEALER['score']){
+        console.log('YOU LOSE!');
+        winner =DEALER;
+        blackjackgame['loses']++;
+      }
+      else if(YOU['score'] == DEALER['score']){
+        console.log('You DRAW!');
+        blackjackgame['draws']++;
+      }
+    }
+    else if(YOU['score']>21 && DEALER['score']<=21){
+      winner=DEALER;
+      console.log('YOU lose!');
+      blackjackgame['loses']++;
+
+    }
+    else if(YOU['score']>21 && DEALER['score']>21){
+       console.log('YOU DRAW!');
+       blackjackgame['draws']++;
+    }
+    console.log('winner is :',winner);
+    return winner;
+  }
+  function showresults(winner){
+  let message,messagecolor;
+  if(blackjackgame['turnsover']==true){
+  if(winner==YOU){
+    message='You Win!';
+    messagecolor='green';
+    winsound.play();
+    document.querySelector('#wins').textContent = blackjackgame['wins'];
+  }
+  else if(winner==DEALER){
+    message='You Lost!';
+    messagecolor='red';
+    lostsound.play();
+    document.querySelector('#loses').textContent = blackjackgame['loses'];
+  }
+  else{
+    message='You Drew!';
+    messagecolor='black';
+    document.querySelector('#draws').textContent = blackjackgame['draws'];
+  }
+  document.querySelector('#blackjack-result').innerHTML=message;
+  document.querySelector('#blackjack-result').style.color=messagecolor;
+  }
+
+
+  }
+</script>
+
+</html>
